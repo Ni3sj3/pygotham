@@ -1,0 +1,21 @@
+Talks I'm attending
+
+10/06
+------------------------------------------------------------------------------------------------------------------------
+10:15 AM  PennTop North		Creating a Bittorrent Client using Asyncio				Ahmed Abdalla
+10:45 AM  PennTop North		Context Propagation for Python Concurrency Models			Emanuelle Palazzetti
+11:15 AM  PennTop North		Everything you Ever Wanted to Know about Web Authentication in Python	Randall Degges
+
+1:00  PM  PennTop North		Spark Streaming for World Domination (and other projects)      		Win Suen
+1:30  PM  PennTop North		Tracing the Flow of Knowledge using PySpark				Jessica Cox & Corey Harper
+
+
+At 2:00 I have a decision to make -- Try Monads in PySpark in PennTop North or Building a Search Index in Python in Madison
+
+
+2:45  PM Madison 	     	LOOP BETTER: A DEEPER LOOK AT ITERATION IN PYTHON	  	        Trey Hunter
+
+
+
+
+
