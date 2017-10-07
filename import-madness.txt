@@ -1,0 +1,6 @@
+import madness
+
+       __import__('module')
+       bind names to local variables
+       	    cache == sys.modules
+	    

@@ -1,0 +1,22 @@
+App Nexus
+----
+
+
+Streaming 
+	  ads
+	  
+
+	  supports
+		kafka, flume, hdfs/s3, kinesis, twitter
+		       s3 & twitter could be relevant
+	  need to add a streaming context in addition to the spark context:
+	       from pyspark.streaming import StreamingContext	
+	       ssc = StreamingContext(sc, 60)
+	       lines = ssc.socketTextStream('localhost', 9999)
+
+	       # work goes here
+	       ssc.start()
+	   
+	  demo
+		available on github repo
+		
