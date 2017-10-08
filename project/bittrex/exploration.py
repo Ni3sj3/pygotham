@@ -25,7 +25,7 @@ if test:
     test_markets  = [Market(m) for m in test_triangle]
     test_cycle    = Cycle(test_markets)
 
-    # we implemented __get__item for Cycle so that we should be able to iterate over the test_cycle.  Let's test that!
+    # we implemented __getitem__ for Cycle so that we should be able to iterate over the test_cycle.  Let's test that!
     print ('\nTest Cycle')
     for idx, (market, order_type) in enumerate(test_cycle):
         print('\t({}) {} => {}'.format(idx, market, order_type))
