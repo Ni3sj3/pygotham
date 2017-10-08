@@ -8,18 +8,32 @@ If you are affected by these limits as an active trader,
 please email support@bittrex.com."
 
 """
-
-DEPTH_TYPES = ['buy', 'sell', 'both'] # sell is not ask, as one might assume...
-
-btc_eth = 'BTC-ETH'
-eth_ltc = 'ETH-LTC'
-btc_ltc = 'BTC-LTC'
-
-test_triangle = (btc_eth, eth_ltc, btc_ltc)
-
-fee = 0.25/100 # 0.25% commission
-
 bt = Bittrex(None, None)
+
+
+test = True
+
+
+if test:
+    DEPTH_TYPES = ['buy', 'sell', 'both'] # sell is not ask, as one might assume...
+
+    btc_eth = 'BTC-ETH'
+    eth_ltc = 'ETH-LTC'
+    btc_ltc = 'BTC-LTC'
+
+    test_triangle = (btc_eth, eth_ltc, btc_ltc)
+    test_markets  = [Market(m) for m in test_triangle]
+    test_cycle    = Cycle(test_markets)
+
+    # we implemented __get__item for Cycle so that we should be able to iterate over the test_cycle.  Let's test that!
+    print ('\nTest Cycle')
+    for idx, (market, order_type) in enumerate(test_cycle):
+        print('\t({}) {} => {}'.format(idx, market, order_type))
+
+    fee = 0.25/100 # 0.25% commission
+
+    
+    
 
 
 class Market:
@@ -36,6 +50,7 @@ class Market:
         return  'Market (base: {}, to: {})'.format(self.base, self.to)
 
 
+    
 class Cycle:
     
     def __init__(self, markets):
@@ -70,16 +85,19 @@ class Cycle:
         assert(len(self.markets) == len(self.order_types))
 
 
-#    def __iter__(self)
-
+    def __getitem__(self, index):
+        return (self.markets[index], self.order_types[index])
+    
+    
     def __str__(self):
-        return 'Market: {}\nOrder Types: {}'.format(self.markets, self.order_types)
+        return ' \tMARKETS:\t\t{}\n\tORDER TYPES:\t{}'.format(self.markets, self.order_types)
 
     
     def __repr__(self):
-        return 'Cycle: {}'.format(self.__str__())
+        return 'Cycle\n{}'.format(self.__str__())
 
 
+    
 class CycleArbitrage:
     def __init__(self, cycle, fee=0.00025, wiggle=0):
         self.cycle  = cycle
